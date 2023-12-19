@@ -21,7 +21,7 @@ export async function fetchData(setPokemon) {
         const imageUrl =
           data.sprites?.other?.['official-artwork']?.['front_default'];
 
-        return { imageUrl, clicked: false };
+        return { id: pokemonNumber, imageUrl, clicked: false };
       }),
     );
 
