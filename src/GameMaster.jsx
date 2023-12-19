@@ -5,20 +5,38 @@ import Card from './components/Card';
 
 export default function GameMaster() {
   const [pokemon, setPokemon] = useState([]);
+  const [shouldShuffle, setShouldShuffle] = useState(false);
+
+  const handleClick = (clickedPokemon) => {
+    setPokemon((prevPokemon) =>
+      prevPokemon.map((p) =>
+        p.id === clickedPokemon.id ? { ...p, clicked: true } : p,
+      ),
+    );
+    console.log(clickedPokemon.id);
+    setShouldShuffle(true);
+  };
+
+  useEffect(() => {
+    if (shouldShuffle) {
+      setPokemon((prevPokemon) => arrayRandomizer(prevPokemon));
+      setShouldShuffle(false);
+    }
+  }, [shouldShuffle]);
 
   useEffect(() => {
     fetchData(setPokemon);
   }, []);
 
-  const handleClick = () => {
-    setPokemon(arrayRandomizer(pokemon));
-  };
-
   return (
     <>
       {pokemon.map((pokemon) => {
         return (
-          <Card onClick={handleClick} key={pokemon.id} pokemon={pokemon} />
+          <Card
+            onClick={() => handleClick(pokemon)}
+            key={pokemon.id}
+            pokemon={pokemon}
+          />
         );
       })}
     </>
@@ -27,13 +45,6 @@ export default function GameMaster() {
 
 //Current Score + Best Score as states in Game Master
 //  Passed to header to update
-
-//Generate random number 1/100 chance of pulling shiny image
-
-//  Images get mapped to Card components
-//      Each card click adds that object to a clicked state array
-//          Master Pokemon array state is randomized
-//          Trigger-rerendering
 
 //FILE STRUCTURE
 //GameMaster
