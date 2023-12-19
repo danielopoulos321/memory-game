@@ -1,21 +1,49 @@
 :root {
-  --card-width: 165px;
+  --card-width: 170px;
 }
 
 .card-container {
-  display: flex;
-  flex-wrap: wrap;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(var(--card-width), 1fr));
+  gap: 1em;
 }
 
 .card {
-  width: var(--card-width);
-  margin: 1em;
-  padding: 0.5em;
-  border-radius: 1em;
-  background-color: aqua;
+  cursor: pointer;
+  max-width: var(--card-width);
   color: black;
+  justify-self: center;
+  transition: transform 0.5s;
 }
 
 .card > img {
   max-width: var(--card-width);
+}
+
+.loading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1140px) {
+  .card-container {
+    grid-template-columns: repeat(4, minmax(var(--card-width), 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --card-width: 120px;
+  }
+}
+
+@media (max-width: 560px) {
+  .card-container {
+    grid-template-columns: repeat(3, minmax(var(--card-width), 1fr));
+  }
+  :root {
+    --card-width: 100px;
+  }
 }
