@@ -11,7 +11,11 @@ function Card({ pokemon, onClick }) {
 
 export default function CardContainer({ pokemon, handleClick }) {
   if (pokemon.length === 0) {
-    return <div>Loading...</div>;
+    return (
+      <div className="loading">
+        <h1>Loading...</h1>;
+      </div>
+    );
   }
 
   return (
