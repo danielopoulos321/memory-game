@@ -10,6 +10,10 @@ function Card({ pokemon, onClick }) {
 }
 
 export default function CardContainer({ pokemon, handleClick }) {
+  if (pokemon.length === 0) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="card-container">
       {pokemon.map((pokemon) => {
