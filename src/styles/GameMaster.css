@@ -1,6 +1,19 @@
 #root {
   max-width: 1280px;
+  height: 100vh;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 1em;
   text-align: center;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.tile-background {
+  background: rgba(26, 68, 158, 0.58);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.6px);
+  -webkit-backdrop-filter: blur(5.6px);
+  border: 1px solid rgba(26, 68, 158, 1);
 }
