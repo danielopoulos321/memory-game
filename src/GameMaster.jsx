@@ -43,6 +43,7 @@ export default function GameMaster() {
   }, [shouldShuffle]);
 
   useEffect(() => {
+    setPokemon([]);
     fetchData(setPokemon);
     setShouldRestart(false);
   }, [shouldRestart]);
