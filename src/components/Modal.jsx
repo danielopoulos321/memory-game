@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import '/src/styles/Modal.css';
 export default function Modal({
   isDialogOpen,
   setDialogOpen,
@@ -9,9 +10,12 @@ export default function Modal({
     setShouldRestart(true);
   }
   return (
-    <dialog open={isDialogOpen}>
-      <h1>Game Over</h1>
-      <button onClick={handleRestart}>Restart</button>
-    </dialog>
+    <>
+      {isDialogOpen && <div className="modal-overlay"></div>}
+      <dialog open={isDialogOpen}>
+        <h1>Game Over</h1>
+        <button onClick={handleRestart}>Restart</button>
+      </dialog>
+    </>
   );
 }
