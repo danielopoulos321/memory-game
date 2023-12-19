@@ -1,6 +1,7 @@
 import './styles/GameMaster.css';
 import { useState, useEffect } from 'react';
-import { fetchData } from './helperFunctions';
+import { fetchData, arrayRandomizer } from './helperFunctions';
+import Card from './components/Card';
 
 export default function GameMaster() {
   const [pokemon, setPokemon] = useState([]);
@@ -8,10 +9,24 @@ export default function GameMaster() {
   useEffect(() => {
     fetchData(setPokemon);
   }, []);
+
+  const handleClick = () => {
+    setPokemon(arrayRandomizer(pokemon));
+  };
+
+  return (
+    <>
+      {pokemon.map((pokemon) => {
+        return (
+          <Card onClick={handleClick} key={pokemon.id} pokemon={pokemon} />
+        );
+      })}
+    </>
+  );
 }
 
 //Current Score + Best Score as states in Game Master
-//Onload random assortment of Pokemon objects stored in state
+//  Passed to header to update
 
 //Generate random number 1/100 chance of pulling shiny image
 
@@ -24,4 +39,4 @@ export default function GameMaster() {
 //GameMaster
 //COMPONENTS
 //Card
-//Score
+//Header(with Score)
