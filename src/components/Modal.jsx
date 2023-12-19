@@ -12,7 +12,7 @@ export default function Modal({
   return (
     <>
       {isDialogOpen && <div className="modal-overlay"></div>}
-      <dialog open={isDialogOpen}>
+      <dialog className="tile-background" open={isDialogOpen}>
         <h1>Game Over</h1>
         <button onClick={handleRestart}>Restart</button>
       </dialog>

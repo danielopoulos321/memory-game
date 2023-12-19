@@ -3,7 +3,7 @@ import '/src/styles/Cards.css';
 
 function Card({ pokemon, onClick }) {
   return (
-    <div className="card" onClick={onClick}>
+    <div className="card tile-background" onClick={onClick}>
       <img src={pokemon.imageUrl} alt={pokemon.id} />
     </div>
   );
