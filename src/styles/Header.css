@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+
 header {
+  padding: 1em;
   width: 100%;
   height: fit-content;
   display: flex;
@@ -8,8 +11,12 @@ header {
 }
 
 .logo {
-  max-width: 500px;
-  overflow: hidden;
+  margin: 0;
+  margin-bottom: 0.11em;
+  padding: 0.1em;
+  font-size: 4.5em;
+  font-family: 'Pixelify Sans', sans-serif;
+  color: #ffcc00;
 }
 
 .scores {
@@ -36,7 +43,7 @@ header {
 
 @media (max-width: 500px) {
   .logo {
-    max-width: 300px;
+    font-size: 2.5em;
   }
   .scores > p {
     font-size: 1em;
