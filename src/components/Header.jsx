@@ -4,10 +4,10 @@ import '/src/styles/Header.css';
 export default function Header({ score, highScore }) {
   return (
     <header>
-      <h1>Memory-Game</h1>
-      <div className="scores">
-        <div>Score: {score}</div>
-        <div>High Score: {highScore}</div>
+      <img className="logo" src="src/assets/logo.png" alt="memory-game" />
+      <div className="scores tile-background">
+        <p>Score: {score}</p>
+        <p>High Score: {highScore}</p>
       </div>
     </header>
   );
