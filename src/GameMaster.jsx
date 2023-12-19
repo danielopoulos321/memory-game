@@ -12,6 +12,7 @@ export default function GameMaster() {
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [shouldShuffle, setShouldShuffle] = useState(false);
   const [shouldRestart, setShouldRestart] = useState(false);
+  const [rotation, setRotation] = useState(false);
 
   const handleClick = (clickedPokemon) => {
     const validClick = pokemon.some(
@@ -37,7 +38,11 @@ export default function GameMaster() {
 
   useEffect(() => {
     if (shouldShuffle) {
-      setPokemon((prevPokemon) => arrayRandomizer(prevPokemon));
+      setRotation(true);
+      setTimeout(() => {
+        setPokemon((prevPokemon) => arrayRandomizer(prevPokemon));
+        setRotation(false);
+      }, 500);
       setShouldShuffle(false);
     }
   }, [shouldShuffle]);
@@ -51,7 +56,11 @@ export default function GameMaster() {
   return (
     <>
       <Header score={score} highScore={highScore} />
-      <CardContainer pokemon={pokemon} handleClick={handleClick} />
+      <CardContainer
+        pokemon={pokemon}
+        handleClick={handleClick}
+        rotation={rotation}
+      />
       <Modal
         isDialogOpen={isDialogOpen}
         setDialogOpen={setDialogOpen}
